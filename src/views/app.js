@@ -9,10 +9,13 @@ var AppView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
+
     var listView = new VideoListView({collection : this.videos, el: ".list"});
     listView.render();
-    var playerView = new VideoPlayerView({collection : this.videos, el: ".player"});
+
+    var playerView = new VideoPlayerView( { collection : this.videos } );
     playerView.render();
+
     return this;
   },
 
