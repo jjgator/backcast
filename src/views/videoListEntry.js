@@ -9,13 +9,15 @@ var VideoListEntryView = Backbone.View.extend({
   },
 
   render: function() {
+    // console.log('video list entry html: ', this.$el)
     this.$el.append(this.template(this.model.attributes));
     return this;
   },
 
   handleClick : function(param) {
     // debugger;
-    console.log('handleClick parameter: ', param);
+    // console.log('handleClick parameter: ', param);
+    console.log(this.model);
     // console.log('context: ', this);
     this.model.select();
   },

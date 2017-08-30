@@ -5,8 +5,8 @@ var VideoListView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.children().detach();
     this.$el.html(this.template());
+    this.$el.children().detach();
     this.collection.each( function(model){
       this.renderVideo(model);
     }, this);
@@ -16,8 +16,11 @@ var VideoListView = Backbone.View.extend({
   },
 
   renderVideo: function(video){
-    var videoView = new VideoListEntryView({ model: video, el: ".video-list" });
+    // console.log(this.$('.video-list'))
+    // var videoView = new VideoListEntryView({ model: video, el: this.$(".video-list") });
     // this.$el.append(videoView.render());
+
+    var videoView = new VideoListEntryView( { model: video } );
     this.$el.append(videoView.render().$el);
   },
 
